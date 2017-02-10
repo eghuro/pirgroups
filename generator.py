@@ -1,8 +1,8 @@
 import graph
 import datetime
 
-def generate():
-    seznamSkupin = ["Republikovy vybor", "Celostatni forum", "KS Praha", "KS Stredocesky kraj", "KS Ustecky kraj"]
+
+def generate(seznamSkupin):
     seznam = []
     for skupina in seznamSkupin:
         count = graph.getTotalCount(skupina)
@@ -16,13 +16,13 @@ def generate():
 
 
 def printHeader():
-    print("<!DOCTYPE  html>\n<html>\n<head>\n" + 
-          "<title>Skupiny clenu</title>\n" + 
+    print("<!DOCTYPE  html>\n<html>\n<head>\n" +
+          "<title>Skupiny clenu</title>\n" +
           "</head>")
 
-    
+
 def printBody(seznam):
-    #seznam ctveric: jmeno, pocet, zahajeni, probihajici
+    # seznam ctveric: jmeno, pocet, zahajeni, probihajici
     print("<body>\n" +
           "<h1>Skupiny clenu u Piratu</h1>")
 
@@ -49,8 +49,12 @@ def printBody(seznam):
 
 
 def printFooter():
-    print("<p>Generated: " + datetime.datetime.now().strftime("%b %d %Y, %H:%M") + "</p>")
+    print("<p>Generated: " +
+          datetime.datetime.now().strftime("%b %d %Y, %H:%M") +
+          "</p>")
     print("</body></html>")
 
 
-generate()
+skupiny = ["Republikovy vybor", "Celostatni forum", "KS Praha",
+           "KS Stredocesky kraj", "KS Ustecky kraj"]
+generate(skupiny)
