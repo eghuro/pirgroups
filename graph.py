@@ -1,9 +1,15 @@
 import requests
+from urllib.parse import urljoin, quote
 from math import sqrt
 
 
-def getTotalCount():
-    members_url = "https://graph.pirati.cz/group/Republikovy%20vybor/members"
+def __getUrl(skupina):
+    base = "https://graph.pirati.cz/group/"
+    tail = "members"
+    return urljoin(urljoin(base, quote(skupina)) + "/", tail)
+
+def getTotalCount(skupina):
+    members_url = __getUrl(skupina)
     r = requests.get(members_url)
 
     count = 0
@@ -18,7 +24,7 @@ def __countSkupinaZahajeni(total):
     '''
 
     zaklad = 2 * sqrt(total)
-    minimium = total / 100
+    minimum = total / 100
     maximum = total / 5
 
     if zaklad > maximum:
