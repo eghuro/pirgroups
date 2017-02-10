@@ -20,7 +20,10 @@ def getTotalCount(skupina):
 
 def __countSkupinaZahajeni(total):
     '''
-    Skupinou členů se rozumí jen taková skupina, která čítá aspoň stanovený počet členů strany, kteří podpořili určitý návrh. Počet členů se stanoví u návrhu na zahájení jednání jako dvojnásobek odmocniny z počtu přítomných členů, nejméně však jedna setina a nejvýše jedna pětina z počtu přítomných členů. U návrhu na již zahájeném jednání se takto stanovený počet snižuje na polovinu.4)
+    Skupinou členů se rozumí jen taková skupina, která čítá aspoň stanovený počet členů strany, kteří podpořili určitý návrh.
+    Počet členů se stanoví u návrhu na zahájení jednání jako dvojnásobek odmocniny z počtu přítomných členů,
+    nejméně však jedna setina a nejvýše jedna pětina z počtu přítomných členů.
+    U návrhu na již zahájeném jednání se takto stanovený počet snižuje na polovinu.
     '''
 
     zaklad = 2 * sqrt(total)
