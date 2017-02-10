@@ -52,7 +52,7 @@ def printBody(seznam):
 def printFooter():
     from_zone = tz.gettz('UTC')
     to_zone = tz.gettz('Europe/Prague')
-    utc = datetime.datetime.now()
+    utc = datetime.datetime.utcnow()
     utc = utc.replace(tzinfo=from_zone)
     local = utc.replace(tzinfo=to_zone)
 
