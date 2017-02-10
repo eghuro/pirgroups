@@ -36,7 +36,7 @@ def printBody(count, zahajeni, probihajici):
 
 
 def printFooter():
-    print("<p>Generated: " + str(datetime.datetime.now()) + "</p>")
+    print("<p>Generated: " + datetime.datetime.now().strftime("%b %d %Y, %H:%M") + "</p>")
     print("</body></html>")
 
 
