@@ -1,4 +1,5 @@
 import graph
+import datetime
 
 def generate():
     count = graph.getTotalCount()
@@ -31,12 +32,12 @@ def printBody(count, zahajeni, probihajici):
           "</td><td>" +
           str(probihajici) +
           "</td></tr>\n" +
-          "</tbody></table>\n" +
-          "</body>")
+          "</tbody></table>\n")
 
 
 def printFooter():
-    print("</html>")
+    print("<p>Generated: " + datetime.datetime.now() + "</p>")
+    print("</body></html>")
 
 
 generate()
