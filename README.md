@@ -11,7 +11,7 @@ prislusnych skupin clenu ve vybranych skupinach, konkretne: Celostatni forum,
 Republikovy vybor, KF KS Praha, KS ScK a KS UsK.
 
 Pro pouziti je potreba `python3`, `requests` a `arrow`.
-Jednotlive zavislosti lze nainstalovat pres pip pomoci `pip install < requirements.txt`
+Jednotlive zavislosti lze nainstalovat pres pip pomoci `pip install -r requirements.txt`
 
 Spousti se pomoci `python3 generator.py > skupiny.html`
 Vysledek je mozne videt na: https://poseidon.eghuro.cz/skupiny.html
