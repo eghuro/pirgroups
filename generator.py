@@ -1,6 +1,5 @@
 import graph
-import datetime
-from dateutil import tz
+import arrow
 
 
 def generate(seznamSkupin):
@@ -50,14 +49,10 @@ def printBody(seznam):
 
 
 def printFooter():
-    from_zone = tz.gettz('UTC')
-    to_zone = tz.gettz('Europe/Prague')
-    utc = datetime.datetime.utcnow()
-    utc = utc.replace(tzinfo=from_zone)
-    local = utc.replace(tzinfo=to_zone)
-
+    utc = arrow.utcnow()
+    local = utc.to('Europe/Prague')
     print("<p>Generated: " +
-          local.strftime("%b %d %Y, %H:%M %Z") +
+          local.format('YYYY-MM-DD HH:mm ZZ') +
           "</p>")
     print("</body></html>")
 
