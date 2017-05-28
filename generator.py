@@ -19,36 +19,30 @@ def generate(seznamSkupin):
 
 
 def printHeader():
-    print("<!DOCTYPE  html>\n<html lang=\"cs\">\n<head>\n" +
-          "<meta charset=\"utf-8\" />\n"
-          "<title>Skupiny clenu</title>\n" +
-          "<style> table { border: 1px solid black; " +
-          "border-collapse: collapse; }\n" +
-          "td {border-left: 1px solid black; " +
-          "border-right: 1px solid black;}\n" +
-          "</style>\n</head>\n")
+    lines = ['<!DOCTYPE html>', '<html lang="cs">', '<head>',
+             '<meta charset="utf-8" />', '<title>Skupiny clenu</title>',
+             '<style>',
+             'table { border: 1px solid black; border-collapse: collapse; }',
+             'td {border-left:1px solid black;border-right:1px solid black;}',
+             '</style>',
+             '</head>']
+    print("\n".join(lines))
 
 
 def printBody(seznam):
-    # seznam ctveric: jmeno, pocet, zahajeni, probihajici
     print("<body>\n" +
           "<h1>Skupiny clenu u Piratu</h1>")
 
+    common = "\n".join(['<table><thead><tr>', '<td>Pocet clenu</td>',
+                        '<td>Velikost skupiny pro zahajeni jednani</td>',
+                        '<td>Velikost skupiny na probihajicim jednani</td>',
+                        '</tr>', '</thead>', '<tbody>', '<tr><td>'])
     for skupina in seznam:
-        print("<h2>" + skupina['jmeno'] + "</h2>\n" +
-              "<table><thead><tr>\n" +
-              "<td>Pocet clenu</td>\n" +
-              "<td>Velikost skupiny pro zahajeni jednani</td>\n" +
-              "<td>Velikost skupiny na probihajicim jednani</td>\n" +
-              "</tr>\n</thead>\n<tbody>\n<tr>" +
-              "<td>" +
-              str(skupina['pocet']) +
-              "</td><td>" +
-              str(skupina['zahajeni']) +
-              "</td><td>" +
-              str(skupina['probihajici']) +
-              "</td></tr>\n" +
-              "</tbody></table>\n")
+        print("<h2>" + skupina['jmeno'] + "</h2>\n")
+        print(common)
+        print(str(skupina['pocet']) + "</td><td> " + str(skupina['zahajeni']))
+        print("</td><td>" + str(skupina['probihajici']) + "</td></tr>\n")
+        print("</tbody></table>\n")
 
 
 def printFooter():
