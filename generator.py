@@ -56,7 +56,8 @@ def printFooter():
     local = utc.to('Europe/Prague')
     rev = subprocess.check_output(["git", "describe", "--always"])
     rev = rev.strip().decode('utf-8')
-    link = '<a href="https://github.com/eghuro/pirgroups/">' + rev + '</a>'
+    link = '<a href="https://github.com/eghuro/pirgroups/tree/%s">%s</a>' %\
+           (rev, rev)
 
     print("<p>Generated on " +
           local.format('YYYY-MM-DD HH:mm ZZ') +
