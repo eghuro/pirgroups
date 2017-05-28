@@ -1,5 +1,6 @@
 import graph
 import arrow
+import subprocess
 
 
 def generate(seznamSkupin):
@@ -51,8 +52,13 @@ def printBody(seznam):
 def printFooter():
     utc = arrow.utcnow()
     local = utc.to('Europe/Prague')
-    print("<p>Generated: " +
+    rev = subprocess.check_output(["git", "describe", "--always"])
+    rev = rev.strip().decode('utf-8')
+    link = '<a href="https://github.com/eghuro/pirgroups/">' + rev + '</a>'
+
+    print("<p>Generated on " +
           local.format('YYYY-MM-DD HH:mm ZZ') +
+          " using script rev. " + link +
           "</p>")
     print("</body></html>")
 
