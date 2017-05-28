@@ -3,23 +3,30 @@ import arrow
 import subprocess
 
 
-def generate(seznamSkupin):
-    seznam = []
+def genSeznam(seznamSkupin):
     for skupina in seznamSkupin:
         count = graph.getTotalCount(skupina)
         zahajeni = graph.getSkupinaZahajeni(count)
         probihajici = graph.getSkupinaProbihajici(count)
-        seznam.append((skupina, count, zahajeni, probihajici))
+        yield {'jmeno': skupina, 'pocet': count, 'zahajeni': zahajeni,
+               'probihajici': probihajici}
 
+
+def generate(seznamSkupin):
     printHeader()
-    printBody(seznam)
+    printBody(genSeznam(seznamSkupin))
     printFooter()
 
 
 def printHeader():
-    print("<!DOCTYPE  html>\n<html>\n<head>\n" +
+    print("<!DOCTYPE  html>\n<html lang=\"cs\">\n<head>\n" +
+          "<meta charset=\"utf-8\" />\n"
           "<title>Skupiny clenu</title>\n" +
-          "</head>")
+          "<style> table { border: 1px solid black; " +
+          "border-collapse: collapse; }\n" +
+          "td {border-left: 1px solid black; " +
+          "border-right: 1px solid black;}\n" +
+          "</style>\n</head>\n")
 
 
 def printBody(seznam):
@@ -28,23 +35,18 @@ def printBody(seznam):
           "<h1>Skupiny clenu u Piratu</h1>")
 
     for skupina in seznam:
-        jmeno = skupina[0]
-        pocet = str(skupina[1])
-        zahajeni = str(skupina[2])
-        probihajici = str(skupina[3])
-
-        print("<h2>" + jmeno + "</h2>\n" +
-              "<table border=\"1\"><thead><tr>\n" +
+        print("<h2>" + skupina['jmeno'] + "</h2>\n" +
+              "<table><thead><tr>\n" +
               "<td>Pocet clenu</td>\n" +
               "<td>Velikost skupiny pro zahajeni jednani</td>\n" +
               "<td>Velikost skupiny na probihajicim jednani</td>\n" +
               "</tr>\n</thead>\n<tbody>\n<tr>" +
               "<td>" +
-              pocet +
+              str(skupina['pocet']) +
               "</td><td>" +
-              zahajeni +
+              str(skupina['zahajeni']) +
               "</td><td>" +
-              probihajici +
+              str(skupina['probihajici']) +
               "</td></tr>\n" +
               "</tbody></table>\n")
 
