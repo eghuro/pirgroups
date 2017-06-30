@@ -30,8 +30,7 @@ def printHeader():
 
 
 def printBody(seznam):
-    print("<body>\n" +
-          "<h1>Skupiny clenu u Piratu</h1>")
+    print("<body>\n<h1>Skupiny clenu u Piratu</h1>")
 
     common = "\n".join(['<table><thead><tr>', '<td>Pocet clenu</td>',
                         '<td>Velikost skupiny pro zahajeni jednani</td>',

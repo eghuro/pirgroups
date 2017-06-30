@@ -1,6 +1,6 @@
 import requests
 from urllib.parse import urljoin, quote
-from math import sqrt
+from math import sqrt, ceil
 
 
 def __getUrl(skupina):
@@ -10,14 +10,7 @@ def __getUrl(skupina):
 
 
 def getTotalCount(skupina):
-    members_url = __getUrl(skupina)
-    r = requests.get(members_url)
-
-    count = 0
-    for member in r.json():
-        count = count + 1
-
-    return count
+    return len(requests.get(__getUrl(skupina)).json())
 
 
 def __countSkupinaZahajeni(total):
@@ -44,8 +37,8 @@ def __countSkupinaZahajeni(total):
 
 
 def getSkupinaZahajeni(total):
-    return int(round(__countSkupinaZahajeni(total), 0))
+    return int(ceil(__countSkupinaZahajeni(total), 0))
 
 
 def getSkupinaProbihajici(total):
-    return int(round(__countSkupinaZahajeni(total) / 2, 0))
+    return int(ceil(__countSkupinaZahajeni(total) / 2, 0))
