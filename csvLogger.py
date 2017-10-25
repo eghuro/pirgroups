@@ -10,3 +10,4 @@ def log(data, file):
             writer.writerow([item['jmeno'], item['pocet'],
                              item['zahajeni'], item['probihajici'],
                              local.format('YYYY-MM-DD')])
+            yield item
