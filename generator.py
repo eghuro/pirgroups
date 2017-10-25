@@ -1,4 +1,5 @@
 import graph
+import csvLogger 
 import arrow
 import subprocess
 
@@ -12,9 +13,14 @@ def genSeznam(seznamSkupin):
                'probihajici': probihajici}
 
 
+def teeLog(seznam, out):
+    csvLogger.log(seznam, out)
+    return seznam
+
+
 def generate(seznamSkupin):
     printHeader()
-    printBody(genSeznam(seznamSkupin))
+    printBody(teeLog(genSeznam(seznamSkupin), 'data.csv'))
     printFooter()
 
 
