@@ -1,7 +1,7 @@
 import graph
-import csvLogger 
 import arrow
 import subprocess
+import json
 
 
 def genSeznam(seznamSkupin):
@@ -13,14 +13,20 @@ def genSeznam(seznamSkupin):
                'probihajici': probihajici}
 
 
-def teeLog(seznam, out):
-    csvLogger.log(seznam, out)
-    return seznam
+def teeLog(data, out, buf):
+    for item in data:
+        buf.append(json.dumps(item))
+        yield item
 
 
 def generate(seznamSkupin):
     printHeader()
-    printBody(teeLog(genSeznam(seznamSkupin), 'data.csv'))
+    buf = []
+    printBody(teeLog(genSeznam(seznamSkupin), 'data.csv', buf))
+    with open('current.json', 'w') as cur:
+        cur.write('[')
+        cur.write(", ".join(buf))
+        cur.write(']')
     printFooter()
 
 
@@ -62,6 +68,9 @@ def printFooter():
           local.format('YYYY-MM-DD HH:mm ZZ') +
           " using script rev. " + link +
           "</p>")
+    print("<p>Machine readable open data: " +
+          "<a href=\"current.json\">current</a>, "+
+          "<a href=\"data.csv\">historical</a></p>")
     print("</body></html>")
 
 
