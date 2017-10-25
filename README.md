@@ -8,7 +8,10 @@ skupin clenu.
 
 `generator.py` vygeneruje jednoduchou HTML stranku, ktera zobrazuje velikosti
 prislusnych skupin clenu ve vybranych skupinach, konkretne: Celostatni forum,
-Republikovy vybor, KF KS Praha, KS ScK a KS UsK.
+Republikovy vybor, KF KS Praha, KS ScK, KS UsK a Poslanci.
+
+`csvLogger.py` zaznamena aktualni pocty clenu a velikosti skupin ve vybranych
+skupinach do CSV souboru.
 
 Pro pouziti je potreba `python3`, `requests` a `arrow`.
 Jednotlive zavislosti lze nainstalovat pres pip pomoci `pip install -r requirements.txt`
