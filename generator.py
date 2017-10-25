@@ -60,5 +60,5 @@ def printFooter():
 
 
 skupiny = ["Republikovy vybor", "Celostatni forum", "KS Praha",
-           "KS Stredocesky kraj", "KS Ustecky kraj"]
+           "KS Stredocesky kraj", "KS Ustecky kraj", "Poslanci"]
 generate(skupiny)
