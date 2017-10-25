@@ -11,6 +11,6 @@ with open('current.json', 'r') as jsn:
 for item in cur:
     with open('data.csv', 'a') as csvfile:
         writer = csv.writer(csvfile)
-        writer.writerow([item['jmeno'], item['pocet'],
-                         item['zahajeni'], item['probihajici'],
+        writer.writerow([item, cur[item]['pocet'],
+                         cur[item]['zahajeni'], cur[item]['probihajici'],
                          local.format('YYYY-MM-DD')])
