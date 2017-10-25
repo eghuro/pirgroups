@@ -15,7 +15,7 @@ def genSeznam(seznamSkupin):
 
 def teeLog(data, out, buf):
     for item in data:
-        buf.append(json.dumps(item))
+        buf.append('"'+item['jmeno']+'":{"pocet": '+str(item['pocet'])+',"zahajeni":'+str(item['zahajeni'])+',"probihajici":'+str(item['probihajici'])+'}')
         yield item
 
 
@@ -24,9 +24,9 @@ def generate(seznamSkupin):
     buf = []
     printBody(teeLog(genSeznam(seznamSkupin), 'data.csv', buf))
     with open('current.json', 'w') as cur:
-        cur.write('[')
+        cur.write('{')
         cur.write(", ".join(buf))
-        cur.write(']')
+        cur.write('}')
     printFooter()
 
 
