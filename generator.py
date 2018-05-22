@@ -31,7 +31,11 @@ def generate(seznamSkupin):
 
 
 def printHeader():
-    lines = ['<!DOCTYPE html>', '<html lang="cs">', '<head>',
+    fav = 'https://forum.pirati.cz/styles/prosilver-ppcz-wide/theme/favicon.png'
+    fvlnk = "".join(['<link rel="shortcut icon" href="',
+                     fav,
+                     '" type="image/x-icon" />'])
+    lines = ['<!DOCTYPE html>', '<html lang="cs">', '<head>', fvlnk,
              '<meta charset="utf-8" />', '<title>Skupiny clenu</title>',
              '<style>',
              'table { border: 1px solid black; border-collapse: collapse; }',
