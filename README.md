@@ -9,10 +9,10 @@ skupin clenu.
 `generator.py` vygeneruje na standardni vystup jednoduchou HTML stranku, ktera zobrazuje velikosti
 prislusnych skupin clenu ve vybranych skupinach, konkretne: Republikovy vybor, Celostatni forum,
 KS Praha, KS Stredocesky kraj, S Ustecky kraj, Poslanecka snemovna - poslanci a MS Praha 4. Navic
-vygeneruje soubor current.json, kde jsou prislusna data ve strojove citelne podobe.
+vygeneruje soubor `current.json`, kde jsou prislusna data ve strojove citelne podobe.
 
 `csvLogger.py` zaznamena aktualni pocty clenu a velikosti skupin ve vybranych
-skupinach ze souboru current.json do CSV souboru.
+skupinach ze souboru `current.json` do souboru `data.csv`.
 
 Pro pouziti je potreba `python3`, `requests` a `arrow`.
 Jednotlive zavislosti lze nainstalovat pres pip pomoci `pip install -r requirements.txt`
