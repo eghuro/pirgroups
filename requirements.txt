@@ -2,7 +2,7 @@
 appdirs==1.4.3
 arrow==0.15.5
 certifi==2019.11.28
-chardet==3.0.4
+chardet==4.0.0
 idna==2.8
 packaging==20.1
 pyparsing==2.4.6
