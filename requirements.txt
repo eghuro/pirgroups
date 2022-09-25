@@ -4,7 +4,7 @@ arrow==0.15.5
 certifi==2019.11.28
 chardet==3.0.4
 idna==2.8
-packaging==20.1
+packaging==21.3
 pyparsing==2.4.6
 python-dateutil==2.8.1
 requests==2.22.0
